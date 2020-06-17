@@ -26,3 +26,8 @@
     name: "AllowIndexingEncryptedStoresOrItems"
     data: "0"
     type: dword
+
+- name: Undo WinRM configuration at shutdown
+  win_shell: Invoke-Expression (Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/DarwinJS/Undo-WinRMConfig/master/Undo-WinRMConfig.ps1')
+  when:
+  - disable_winrm | bool

@@ -1,5 +1,5 @@
 ---
-# Enabling PowerShell script block logging will record detailed information from the processing of PowerShell commands and scripts
+# Enabling PowerShell script block logging will record detailed information from the processing of PowerShell commands and scripts.
 - name: Powershell ScriptBlock Logging | powershell-script-blocklogging
   win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging

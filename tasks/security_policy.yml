@@ -1,19 +1,19 @@
 ---
-- name: create security policy directories
+- name: Create Security Policy directories
   win_file:
-    path: "{{item}}"
+    path: "{{ item }}"
     state: directory
   with_items:
-    - "{{win_security_policy_template_location}}"
-    - "{{win_security_policy_database_location}}"
-    - "{{win_security_policy_log_location}}"
+    - "{{ win_security_policy_database_location }}"
+    - "{{ win_security_policy_log_location }}"
+    - "{{ win_security_policy_template_location }}"
 
-- name: create security policy on host
+- name: Create Security Policy on host
   win_template:
     src: security_policy.inf.yml
-    dest: "{{win_security_policy_template_location}}\\ansible_windows_hardening_security_policy.inf"
+    dest: "{{ win_security_policy_template_location }}\\ansible_windows_hardening_security_policy.inf"
   register: security_policy
 
-- name: load gpo configuration locally
-  raw: "secedit /configure /cfg {{win_security_policy_template_location}}\\ansible_windows_hardening_security_policy.inf /db {{ win_security_policy_database_location }}\\ansible_windows_hardening.db /quiet"
+- name: Load GPO configuration locally
+  raw: "secedit /configure /cfg {{ win_security_policy_template_location }}\\ansible_windows_hardening_security_policy.inf /db {{ win_security_policy_database_location }}\\ansible_windows_hardening.db /quiet"
   when: security_policy.changed
