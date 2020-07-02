@@ -64,12 +64,12 @@
   win_regedit:
     path: HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System
     name: 'LegalNoticeCaption'
-    data: 'IT IS AN OFFENSE TO CONTINUE WITHOUT PROPER AUTHORIZATION.'
+    data: 'IT IS AN OFFENSE TO CONTINUE WITHOUT PROPER AUTHORIZATION!'
     type: string
 
 - name: Enable Interactive Logon Message Text | AC.2.005
   win_regedit:
     path: HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System
     name: 'LegalNoticeText'
-    data: 'This system is restricted to authorized users. Individuals who attempt unauthorized access will be prosecuted. If you are unauthorized"," terminate access now. Click OK to indicate your acceptance of this information.'
+    data: 'This system is restricted to authorized users. Individuals who attempt unauthorized access will be prosecuted. If you are unauthorized, terminate access now. Click OK to indicate your acceptance of this information.'
     type: string

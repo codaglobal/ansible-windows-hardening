@@ -1,58 +1,59 @@
 ---
 - name: print ansible_distribution
   debug:
+    # "Microsoft Windows Server 2019 Datacenter"
     var: ansible_distribution
 
 - name: print ansible_distribution_major_version
   debug:
     var: ansible_distribution_major_version
 
-- include: access.yml
+- include_tasks: access.yml
   tags: access
   when:
   - enable_access | bool
 
-- include: account.yml
+- include_tasks: account.yml
   tags: account
   when:
   - enable_account | bool
 
-- include: audit.yml
+- include_tasks: audit.yml
   tags: audit
   when:
   - enable_audit | bool
 
-- include: fips.yml
+- include_tasks: fips.yml
   tags: fips
   when:
   - enable_fips | bool
 
-- include: ie.yml
+- include_tasks: ie.yml
   tags: ie
   when:
   - enable_ie | bool
 
-- include: misc.yml
+- include_tasks: misc.yml
   tags: misc
   when:
   - enable_misc | bool
 
-- include: password_policy.yml
+- include_tasks: password_policy.yml
   tags: password_policy
   when:
   - enable_password_policy | bool
 
-- include: powershell.yml
+- include_tasks: powershell.yml
   tags: powershell
   when:
   - enable_powershell | bool
 
-- include: rdp.yml
+- include_tasks: rdp.yml
   tags: rdp
   when:
   - enable_rdp | bool
 
-- include: security_policy.yml
+- include_tasks: security_policy.yml
   tags: security_policy
   when:
   - enable_security_policy | bool

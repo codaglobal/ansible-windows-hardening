@@ -10,8 +10,6 @@ enable_powershell: true
 enable_rdp: true
 enable_security_policy: true
 
-disable_winrm: false
-
 win_security_policy_template_location: 'C:\Windows\security\templates'
 win_security_policy_database_location: 'C:\Windows\security\database'
 win_security_policy_log_location: 'C:\Windows\security\logs'
